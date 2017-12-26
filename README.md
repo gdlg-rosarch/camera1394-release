@@ -1,3 +1,26 @@
+## camera1394 (kinetic) - 1.10.1-0
+
+The packages in the `camera1394` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release camera1394 --track kinetic --rosdistro kinetic -n` on `Tue, 26 Dec 2017 21:36:58 -0000`
+
+The `camera1394` package was released.
+
+Version of package(s) in repository `camera1394`:
+
+- upstream repository: https://github.com/ros-drivers/camera1394.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `1.10.1-0`
+
+Versions of tools used:
+
+- bloom version: `0.6.1`
+- catkin_pkg version: `0.3.9`
+- rosdep version: `0.11.8`
+- rosdistro version: `0.6.3`
+- vcstools version: `0.1.39`
+
+
 ## camera1394 (indigo) - 1.10.0-0
 
 The packages in the `camera1394` repository were released into the `indigo` distro by running `/usr/bin/bloom-release camera1394 -r indigo -t indigo -n` on `Mon, 01 Sep 2014 23:38:39 -0000`
