@@ -34,7 +34,6 @@
 
 #include <boost/format.hpp>
 
-#include <driver_base/SensorLevels.h>
 #include <tf/transform_listener.h>
 
 #include "driver1394.h"
@@ -63,8 +62,7 @@ namespace camera1394_driver
 {
   // some convenience typedefs
   typedef camera1394::Camera1394Config Config;
-  typedef driver_base::Driver Driver;
-  typedef driver_base::SensorLevels Levels;
+  typedef Camera1394Driver Driver;
 
   Camera1394Driver::Camera1394Driver(ros::NodeHandle priv_nh,
                                      ros::NodeHandle camera_nh):
@@ -75,6 +73,7 @@ namespace camera1394_driver
     camera_name_("camera"),
     cycle_(1.0),                        // slow poll when closed
     retries_(0),
+    consecutive_read_errors_(0),
     dev_(new camera1394::Camera1394()),
     srv_(priv_nh),
     cinfo_(new camera_info_manager::CameraInfoManager(camera_nh_)),
@@ -175,6 +174,7 @@ namespace camera1394_driver
     topic_diagnostics_min_freq_ = newconfig.frame_rate - delta;
     topic_diagnostics_max_freq_ = newconfig.frame_rate + delta;
 
+    consecutive_read_errors_ = 0;
     return success;
   }
 
@@ -205,7 +205,15 @@ namespace camera1394_driver
             if (read(image))
               {
                 publish(image);
+                consecutive_read_errors_ = 0;
               }
+            else if (++consecutive_read_errors_ > config_.max_consecutive_errors
+                     && config_.max_consecutive_errors > 0)
+            {
+              ROS_WARN("reached %u consecutive read errrors, disconnecting",
+                       consecutive_read_errors_ );
+              closeCamera();
+            }
           }
       } // release mutex lock
 

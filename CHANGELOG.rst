@@ -1,6 +1,15 @@
 Change history
 ==============
 
+1.10.1 (2017-12-26)
+-------------------
+
+ * Initial Kinetic release.
+ * Reconnect to device after too many consecutive read errors.
+ * Update to compile cleanly on Kinetic.
+ * Remove dependency on ``driver_base`` package (`#18_`).
+ * Contributors: Mikael Arguedas, Francois Chataigner, Jack O'Quin
+
 1.10.0 (2014-09-01)
 -------------------
 
@@ -101,8 +110,8 @@ Change history
  * Add nodelet version of driver.
  * Add IIDC Format7 support (`#4222`_), thanks to Ken Tossell.
  * Format7 binning and ROI comply with REP 104.
- * Add Focus and Zoom feature support (`#4631`_), thanks to José Antonio
-   Álvarez Ruiz.
+ * Add Focus and Zoom feature support (`#4631`_), thanks to Jose Antonio
+   Alvarez Ruiz.
  * The driver will only set video_mode or frame_rate to values
    supported by the device.
  * Bayer decoding within the driver deprecated (`#4725`_). Prefer
@@ -140,6 +149,7 @@ Change history
 .. _`#10`: https://github.com/ros-drivers/camera1394/issues/10
 .. _`#11`: https://github.com/ros-drivers/camera1394/pull/11
 .. _`#15`: https://github.com/ros-drivers/camera1394/issues/15
+.. _`#18`: https://github.com/ros-drivers/camera1394/issues/18
 .. _`#29`: https://github.com/ros-drivers/camera1394/issues/29
 .. _`#32`: https://github.com/ros-drivers/camera1394/pull/32
 .. _`#33`: https://github.com/ros-drivers/camera1394/issues/33
