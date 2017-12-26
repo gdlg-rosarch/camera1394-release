@@ -1,0 +1,13 @@
+Source: ros-kinetic-camera1394
+Section: misc
+Priority: extra
+Maintainer: Jack O'Quin <jack.oquin@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, libdc1394-22-dev, ros-kinetic-camera-info-manager, ros-kinetic-catkin, ros-kinetic-diagnostic-updater, ros-kinetic-dynamic-reconfigure, ros-kinetic-image-transport, ros-kinetic-message-generation, ros-kinetic-nodelet, ros-kinetic-roscpp, ros-kinetic-rostest, ros-kinetic-sensor-msgs, ros-kinetic-tf
+Homepage: http://ros.org/wiki/camera1394
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-camera1394
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, libdc1394-22-dev, ros-kinetic-camera-info-manager, ros-kinetic-diagnostic-updater, ros-kinetic-dynamic-reconfigure, ros-kinetic-image-transport, ros-kinetic-message-runtime, ros-kinetic-nodelet, ros-kinetic-roscpp, ros-kinetic-sensor-msgs, ros-kinetic-tf
+Description: ROS driver for devices supporting the IEEE 1394 Digital Camera (IIDC) protocol.
+ Supports the ROS image_pipeline, using libdc1394 for device access.
